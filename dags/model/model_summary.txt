@@ -1,0 +1,19 @@
+
+    === Résumé du modèle de Régression Logistique ===
+
+    Performance:
+    - Score Train: 0.7500
+    - Score Test:  0.3333
+    - Différence:  0.4167
+
+    Données:
+    - Train samples: 12
+    - Test samples:  6
+    - Ratio Test:    33.33%
+
+    Classes:
+    - Classe 0 (Pas de click): 3.0 samples
+    - Classe 1 (Click):       3.0 samples
+
+    Features: 5 features numériques après preprocessing
+    

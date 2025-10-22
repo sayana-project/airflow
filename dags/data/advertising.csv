@@ -1,0 +1,62 @@
+Timestamp,Ad Topic Line,City,Country,Daily Time Spent on Site,Age,Area Income,Daily Internet Usage,Ad Topic Line,City,Country,Clicked on Ad,Male
+2024-01-01 10:30:00,"Eco-friendly gardening tools","New York","USA",68.95,35,61833.90,256.09,"Premium garden solutions","New York","USA",0,1
+2024-01-01 11:15:00,"Smart home security","Los Angeles","USA",80.23,31,68441.85,193.77,"Advanced home automation","Los Angeles","USA",1,0
+2024-01-01 12:45:00,"Organic food delivery","Chicago","USA",69.47,26,59785.94,236.50,"Fresh organic meals","Chicago","USA",0,0
+2024-01-01 14:20:00,"Fitness tracker watch","Houston","USA",74.15,38,54806.18,245.89,"Health monitoring device","Houston","USA",0,1
+2024-01-01 15:30:00,"Online course platform","Phoenix","USA",68.37,35,73894.80,225.58,"E-learning solutions","Phoenix","USA",1,1
+2024-01-01 16:45:00,"Electric scooter","Philadelphia","USA",59.99,37,30549.62,147.24,"Urban mobility solution","Philadelphia","USA",0,1
+2024-01-01 17:30:00,"Video streaming service","San Antonio","USA",88.91,29,60275.22,151.77,"Premium entertainment","San Antonio","USA",1,1
+2024-01-01 18:15:00,"Cloud storage solution","San Diego","USA",84.42,26,72622.47,185.42,"Secure data storage","San Diego","USA",0,1
+2024-01-01 19:00:00,"Virtual reality headset","Dallas","USA",75.07,37,81584.92,208.36,"Immersive gaming experience","Dallas","USA",1,0
+2024-01-01 20:30:00,"Meal kit delivery","San Jose","USA",66.25,28,75990.23,219.24,"Chef-prepared meals","San Jose","USA",0,0
+2024-01-01 21:45:00,"Smartphone accessories","Austin","USA",79.19,31,56542.35,166.73,"Mobile device enhancers","Austin","USA",1,1
+2024-01-01 22:30:00,"Pet care subscription","Jacksonville","USA",91.55,38,69966.13,167.42,"Monthly pet supplies","Jacksonville","USA",1,0
+2024-01-02 09:15:00,"Language learning app","Fort Worth","USA",70.66,27,53516.71,262.79,"Interactive language courses","Fort Worth","USA",0,0
+2024-01-02 10:00:00,"Cryptocurrency trading","Columbus","USA",86.43,34,54989.70,194.87,"Digital asset exchange","Columbus","USA",1,1
+2024-01-02 11:30:00,"Home workout equipment","Charlotte","USA",81.36,38,64028.17,201.84,"Fitness for home use","Charlotte","USA",1,1
+2024-01-02 13:00:00,"Digital marketing tools","San Francisco","USA",74.02,32,75263.90,168.95,"Online advertising platform","San Francisco","USA",0,0
+2024-01-02 14:15:00,"Travel booking platform","Indianapolis","USA",65.47,25,70148.74,218.79,"Hotel and flight deals","Indianapolis","USA",0,1
+2024-01-02 15:45:00,"Fashion subscription box","Seattle","USA,89.87,36,55133.84,184.33,"Monthly clothing delivery","Seattle","USA",1,0
+2024-01-02 17:00:00,"Smart thermostat","Denver","USA",58.03,36,51368.42,233.84,"Energy-saving device","Denver","USA",0,1
+2024-01-02 18:30:00,"Online therapy service","Washington","USA,92.14,27,66940.48,228.54,"Mental health platform","Washington","USA",1,1
+2024-01-02 19:45:00,"Car rental platform","Boston","USA,78.33,29,63383.68,208.03,"Vehicle sharing service","Boston","USA",0,0
+2024-01-02 21:00:00,"Sustainable clothing","Nashville","USA,71.19,31,61234.56,189.47,"Eco-friendly apparel","Nashville","USA",0,1
+2024-01-02 22:15:00,"Gaming laptop","Detroit","USA,87.65,33,74521.89,176.32,"High-performance computer","Detroit","USA",1,0
+2024-01-03 08:30:00,"Meditation app","El Paso","USA,64.02,28,58927.65,242.67,"Mindfulness exercises","El Paso","USA",0,0
+2024-01-03 09:45:00,"Personal finance tracker","Portland","USA,85.58,32,68241.93,197.58,"Budget management tool","Portland","USA",1,1
+2024-01-03 11:00:00,"Smart kitchen appliances","Oklahoma City","USA,77.98,35,51763.45,163.12,"Connected cooking devices","Oklahoma City","USA",0,1
+2024-01-03 12:30:00,"Online tutoring service","Las Vegas","USA,72.49,26,45214.78,251.45,"Educational support platform","Las Vegas","USA",0,0
+2024-01-03 14:00:00,"Home security camera","Louisville","USA,79.23,37,72384.91,215.77,"Surveillance equipment","Louisville","USA",1,1
+2024-01-03 15:15:00,"Mobile payment app","Baltimore","USA,66.89,34,63987.24,182.63,"Digital wallet solution","Baltimore","USA",0,0
+2024-01-03 16:30:00,"Wireless earbuds","Milwaukee","USA,93.86,31,78542.17,205.98,"Bluetooth audio devices","Milwaukee","USA",1,0
+2024-01-03 17:45:00,"Online bookstore","Albuquerque","USA,67.22,29,61245.78,228.65,"Digital literature platform","Albuquerque","USA",0,1
+2024-01-03 19:00:00,"Smart bicycle lock","Tucson","USA,88.01,28,45678.92,251.23,"Anti-theft bike device","Tucson","USA",1,1
+2024-01-03 20:15:00,"Virtual fitness classes","Kansas City","USA,72.13,36,68723.45,195.67,"Live workout sessions","Kansas City","USA",0,0
+2024-01-03 21:30:00,"Personal styling service","Mesa","USA,83.44,25,54231.78,217.89,"Fashion consultation app","Mesa","USA",1,0
+2024-01-03 22:45:00,"Smart garden system","Atlanta","USA,69.57,33,72341.89,208.34,"Automated plant care","Atlanta","USA",0,1
+2024-01-04 08:00:00,"Online coding bootcamp","Fresno","USA,91.23,32,67892.45,186.72,"Programming education","Fresno","USA",1,1
+2024-01-04 09:15:00,"Pet GPS tracker","Sacramento","USA,63.45,29,53467.89,241.56,"Animal location device","Sacramento","USA",0,0
+2024-01-04 10:30:00,"Digital photo frame","Long Beach","USA,87.21,37,71234.56,193.45,"Wi-Fi display device","Long Beach","USA",1,1
+2024-01-04 11:45:00,"Sustainable furniture","Kansas City","USA,71.89,28,64523.78,207.89,"Eco-friendly home decor","Kansas City","USA",0,0
+2024-01-04 13:00:00,"Smart water bottle","Omaha","USA,85.67,35,67892.34,175.43,"Hydration tracking device","Omaha","USA",1,1
+2024-01-04 14:15:00,"Online therapy platform","Raleigh","USA,68.92,26,45234.78,258.67,"Mental health support","Raleigh","USA",0,0
+2024-01-04 15:30:00,"Wireless charger","Virginia Beach","USA,92.34,31,73456.78,192.45,"Contact phone charging","Virginia Beach","USA",1,0
+2024-01-04 16:45:00,"Meal planning app","Miami","USA,74.56,38,68723.45,186.78,"Recipe organization tool","Miami","USA",0,1
+2024-01-04 18:00:00,"Smart doorbell","Oakland","USA,89.12,29,52341.67,245.89,"Video doorbell system","Oakland","USA",1,1
+2024-01-04 19:15:00,"Online language exchange","Minneapolis","USA,67.89,34,61234.56,198.76,"Language learning community","Minneapolis","USA",0,0
+2024-01-04 20:30:00,"Smart luggage tracker","Tulsa","USA,81.23,27,57892.34,187.65,"Baggage location device","Tulsa","USA",1,1
+2024-01-04 21:45:00,"Virtual career fair","Cleveland","USA,73.45,36,64523.78,201.23,"Online job networking","Cleveland","USA",0,0
+2024-01-04 23:00:00,"Smart mirror","Wichita","USA,86.78,32,71234.56,194.56,"Interactive display system","Wichita","USA",1,1
+2024-01-05 08:15:00,"Online music lessons","Arlington","USA,65.23,25,52341.67,252.34,"Instrument education platform","Arlington","USA",0,0
+2024-01-05 09:30:00,"Smart baby monitor","New Orleans","USA,93.45,33,78923.45,183.67,"Child surveillance device","New Orleans","USA",1,0
+2024-01-05 10:45:00,"Digital art gallery","Tampa","USA,72.56,29,63456.78,207.89,"Online artwork display","Tampa","USA",0,1
+2024-01-05 12:00:00,"Smart fitness band","Bakersfield","USA,87.23,36,74567.89,175.34,"Activity tracking device","Bakersfield","USA",1,1
+2024-01-05 13:15:00,"Online coaching service","Aurora","USA,68.91,28,52341.67,248.92,"Personal development mentor","Aurora","USA",0,0
+2024-01-05 14:30:00,"Smart home speaker","Honolulu","USA,84.67,34,67892.34,193.45,"Voice assistant device","Honolulu","USA",0,1
+2024-01-05 15:45:00,"Virtual reality gaming","Anaheim","USA,91.23,31,71234.56,187.65,"VR entertainment system","Anaheim","USA",1,0
+2024-01-05 17:00:00,"Online book club","Santa Ana","USA,73.45,26,53456.78,251.23,"Reading community platform","Santa Ana","USA",0,0
+2024-01-05 18:15:00,"Smart pet feeder","Corpus Christi","USA,88.89,37,68723.45,182.56,"Automated pet care","Corpus Christi","USA",1,1
+2024-01-05 19:30:00,"Digital scrapbooking","Riverside","USA,67.23,32,61234.56,208.94,"Online memory preservation","Riverside","USA",0,0
+2024-01-05 20:45:00,"Smart air purifier","Lexington","USA,85.67,35,72341.89,196.78,"Air quality monitor","Lexington","USA",1,1
+2024-01-05 22:00:00,"Online cooking classes","Stockton","USA,72.34,29,54567.89,213.45,"Virtual culinary education","Stockton","USA",0,1
+2024-01-05 23:15:00,"Smart garage door opener","St. Paul","USA,93.12,33,78923.45,184.67,"Automated home access","St. Paul","USA",1,0
