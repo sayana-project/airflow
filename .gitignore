@@ -144,6 +144,26 @@ ENV/
 env.bak/
 venv.bak/
 
+# Fichiers de configuration sensibles
+.env.example
+config/
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation générée
+pdf.md
+images/
+
+# Logs Docker
+logs/
+
+# Modèles ML et données temporaires
+*.pkl
+model/
+working_data/
+
 # Spyder project settings
 .spyderproject
 .spyproject
