@@ -56,9 +56,9 @@ dag = DAG(
     6. Déclenchement de l'API Flask pour le monitoring
 
     ### Technologies:
-    - Airflow 3.1.0
-    - Scikit-learn 1.7.2
-    - Python 3.13+
+    - Airflow 2.9.3
+    - Scikit-learn 1.4.2
+    - Python 3.11+
     """,
 )
 
@@ -78,7 +78,7 @@ start_task = BashOperator(
     echo "3. Entraînement du modèle"
     echo "4. Évaluation et sauvegarde"
     echo "=============================================="
-    "",
+    """,
     dag=dag,
 )
 
@@ -142,7 +142,7 @@ success_email = EmailOperator(
     <h3>Détails de l'exécution:</h3>
     <ul>
         <li><strong>DAG:</strong> ml_pipeline_advertising</li>
-        <li><strong>Modèle:</strong> Régression Logistique</li>
+        <li><strong>Model:</strong> Régression Logistique</li>
         <li><strong>Dataset:</strong> advertising.csv</li>
     </ul>
 
@@ -156,7 +156,7 @@ success_email = EmailOperator(
     </ol>
 
     <p><em>Consultez les logs et le modèle sauvegardé pour plus de détails.</em></p>
-    "",
+    """,
     dag=dag,
 )
 
@@ -178,7 +178,7 @@ failure_email = EmailOperator(
     </ul>
 
     <p><em>Veuillez consulter les logs pour plus de détails sur l'erreur.</em></p>
-    "",
+    """,
     trigger_rule=TriggerRule.ONE_FAILED,
     dag=dag,
 )
@@ -210,7 +210,7 @@ end_task = BashOperator(
     echo " Modèle sauvegardé: /opt/airflow/model/"
     echo " Résumé disponible dans: /opt/airflow/model/model_summary.txt"
     echo "=============================================="
-    "",
+    """,
     trigger_rule=TriggerRule.ALL_DONE,
     dag=dag,
 )
