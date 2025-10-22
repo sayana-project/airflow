@@ -1,12 +1,10 @@
-# Fichier: main.py - DAG principal pour le pipeline ML avec API Flask intégrée
+# Fichier: main.py - DAG principal pour le pipeline ML
 from __future__ import annotations
 
 import os
 import sys
 import pendulum
 from airflow import DAG
-from flask import Flask, jsonify, request
-from datetime import datetime
 
 # Ajouter le dossier courant au Python path pour les imports
 sys.path.insert(0, os.path.dirname(__file__))
@@ -58,9 +56,9 @@ dag = DAG(
     6. Déclenchement de l'API Flask pour le monitoring
 
     ### Technologies:
-    - Airflow 2.9.3
-    - Scikit-learn 1.4.2
-    - Python 3.11+
+    - Airflow 3.1.0
+    - Scikit-learn 1.7.2
+    - Python 3.13+
     """,
 )
 
@@ -80,7 +78,7 @@ start_task = BashOperator(
     echo "3. Entraînement du modèle"
     echo "4. Évaluation et sauvegarde"
     echo "=============================================="
-    """,
+    "",
     dag=dag,
 )
 
@@ -144,7 +142,7 @@ success_email = EmailOperator(
     <h3>Détails de l'exécution:</h3>
     <ul>
         <li><strong>DAG:</strong> ml_pipeline_advertising</li>
-        <li><strong>Model:</strong> Régression Logistique</li>
+        <li><strong>Modèle:</strong> Régression Logistique</li>
         <li><strong>Dataset:</strong> advertising.csv</li>
     </ul>
 
@@ -158,7 +156,7 @@ success_email = EmailOperator(
     </ol>
 
     <p><em>Consultez les logs et le modèle sauvegardé pour plus de détails.</em></p>
-    """,
+    "",
     dag=dag,
 )
 
@@ -180,7 +178,7 @@ failure_email = EmailOperator(
     </ul>
 
     <p><em>Veuillez consulter les logs pour plus de détails sur l'erreur.</em></p>
-    """,
+    "",
     trigger_rule=TriggerRule.ONE_FAILED,
     dag=dag,
 )
@@ -190,10 +188,10 @@ trigger_flask_task = TriggerDagRunOperator(
     task_id="trigger_flask_api",
     trigger_dag_id="ml_pipeline_flask_api",
     conf={
-        "message": "Pipeline ML principal terminé",
-        "dag_run_id": "{{ run_id }}",
-        "execution_date": "{{ execution_date }}",
-        "status": "success"
+        "message": "Pipeline ML principal terminé avec succès",
+        "dag_id": "ml_pipeline_advertising",
+        "status": "success",
+        "triggered_by": "ml_pipeline_main"
     },
     reset_dag_run=False,
     wait_for_completion=False,
@@ -212,7 +210,7 @@ end_task = BashOperator(
     echo " Modèle sauvegardé: /opt/airflow/model/"
     echo " Résumé disponible dans: /opt/airflow/model/model_summary.txt"
     echo "=============================================="
-    """,
+    "",
     trigger_rule=TriggerRule.ALL_DONE,
     dag=dag,
 )
@@ -228,138 +226,3 @@ summary_task >> failure_email
 # Fin du pipeline et déclenchement de l'API
 success_email >> trigger_flask_task >> end_task
 failure_email >> trigger_flask_task >> end_task
-
-# Fonction Flask intégrée pour le monitoring
-def create_flask_app():
-    """
-    Crée et configure l'application Flask pour le monitoring du pipeline ML
-    """
-    app = Flask(__name__)
-
-    @app.route('/health')
-    def health_check():
-        """Health check endpoint"""
-        return jsonify({
-            "status": "healthy",
-            "service": "ml_pipeline_monitoring",
-            "timestamp": datetime.now().isoformat(),
-            "dag_id": "ml_pipeline_advertising"
-        })
-
-    @app.route('/api/status')
-    def dag_status():
-        """Endpoint pour vérifier le statut du DAG"""
-        try:
-            # Simuler le statut basé sur les fichiers de sortie
-            model_path = "/opt/airflow/model/logistic_regression_model.pkl"
-            summary_path = "/opt/airflow/model/model_summary.txt"
-
-            if os.path.exists(model_path) and os.path.exists(summary_path):
-                # Lire les informations du modèle
-                import pickle
-                with open(model_path, 'rb') as f:
-                    model = pickle.load(f)
-
-                with open(summary_path, 'r') as f:
-                    summary = f.read()
-
-                return jsonify({
-                    "status": "success",
-                    "message": "Pipeline ML exécuté avec succès",
-                    "timestamp": datetime.now().isoformat(),
-                    "model_info": {
-                        "type": str(type(model).__name__),
-                        "model_path": model_path,
-                        "summary_path": summary_path,
-                        "last_updated": datetime.fromtimestamp(os.path.getmtime(model_path)).isoformat()
-                    }
-                })
-            else:
-                return jsonify({
-                    "status": "pending",
-                    "message": "Le pipeline ML n'a pas encore été exécuté",
-                    "timestamp": datetime.now().isoformat()
-                }), 404
-
-        except Exception as e:
-            return jsonify({
-                "status": "error",
-                "message": f"Erreur lors de la vérification du statut: {str(e)}",
-                "timestamp": datetime.now().isoformat()
-            }), 500
-
-    @app.route('/api/metrics')
-    def get_metrics():
-        """Endpoint pour récupérer les métriques du modèle"""
-        try:
-            summary_path = "/opt/airflow/model/model_summary.txt"
-
-            if os.path.exists(summary_path):
-                with open(summary_path, 'r') as f:
-                    summary_content = f.read()
-
-                # Parser le contenu pour extraire les métriques
-                import re
-                metrics = {
-                    "model_type": "Logistic Regression",
-                    "dataset": "advertising.csv",
-                    "last_updated": datetime.fromtimestamp(os.path.getmtime(summary_path)).isoformat(),
-                    "summary": summary_content
-                }
-
-                # Extraire les scores du résumé
-                train_match = re.search(r'Score Train:\s*([\d.]+)', summary_content)
-                test_match = re.search(r'Score Test:\s*([\d.]+)', summary_content)
-
-                if train_match:
-                    metrics["train_score"] = float(train_match.group(1))
-                if test_match:
-                    metrics["test_score"] = float(test_match.group(1))
-
-                return jsonify(metrics)
-            else:
-                return jsonify({
-                    "error": "Model summary not found",
-                    "message": "Executez le DAG principal d'abord pour générer les métriques"
-                }), 404
-
-        except Exception as e:
-            return jsonify({
-                "error": "Internal server error",
-                "message": str(e)
-            }), 500
-
-    @app.route('/')
-    def index():
-        """Page d'accueil - informations du pipeline"""
-        return jsonify({
-            "service": "ML Pipeline Monitoring API",
-            "version": "1.0.0",
-            "endpoints": {
-                "/health": "Health check",
-                "/api/status": "Statut du DAG ML",
-                "/api/metrics": "Métriques du modèle"
-            },
-            "timestamp": datetime.now().isoformat()
-        })
-
-    return app
-
-# Fonction pour démarrer l'API Flask (peut être appelée indépendamment)
-def start_flask_monitoring():
-    """
-    Démarre l'API Flask de monitoring intégrée
-    """
-    app = create_flask_app()
-    print("🚀 Démarrage de l'API Flask intégrée...")
-    print("📡 Endpoints disponibles:")
-    print("  - GET  /health     -> Health check")
-    print("  - GET  /           -> Informations")
-    print("  - GET  /api/status -> Statut DAG ML")
-    print("  - GET  /api/metrics -> Métriques modèle")
-    print("🌐 Port: 5000")
-    app.run(host="0.0.0.0", port=5000, debug=True)
-
-# Point d'entrée pour exécution directe
-if __name__ == "__main__":
-    start_flask_monitoring()
